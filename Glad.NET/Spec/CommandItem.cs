@@ -1,7 +1,8 @@
 using System.Collections.Generic;
+using System.Linq;
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public abstract class CommandItem : Entry, INamed
     {
@@ -31,6 +32,10 @@ namespace Glad
         /// <summary>
         /// Gets a value indicating if the underlying type type is a pointer.
         /// </summary>
-        public bool IsPointer => Words.Contains("*");
+        public bool IsPointer => Words.Any(w => w.Contains("*"));
+
+        public bool IsConstPointer => Words.Any(w => w.Contains("const"));
+
+        public bool IsConstConstPointer => Words.FindAll(w => w.Contains("const")).Count > 1;
     }
 }

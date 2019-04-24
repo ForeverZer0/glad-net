@@ -1,7 +1,6 @@
 using System.Xml;
-using Glad.NET;
 
-namespace Glad
+namespace Glad.Spec
 {
     public class Prototype : CommandItem
     {

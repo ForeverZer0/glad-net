@@ -1,6 +1,6 @@
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public abstract class NamedEntryCollection<T> : EntryCollection<T>, INamed where T : Entry
     {

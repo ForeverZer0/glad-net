@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Xml;
+using Glad.Spec;
 
 namespace Glad
 {
@@ -83,6 +85,53 @@ namespace Glad
                 Commands.Add(new Command(node));
         }
 
-       
+        public IEnumerable<Command> GetCommands(Api api, Version version, Profile profile)
+        {
+            foreach (var name in Fetch(api, version, profile, FeatureType.Command))
+                yield return Commands.Find(cmd => cmd.Name.Equals(name, StringComparison.Ordinal));
+        }
+
+        public IEnumerable<EnumMember> GetEnums(Api api, Version version, Profile profile)
+        {
+            var allEnums = Enums.SelectMany(e => e).ToList();
+            foreach (var name in Fetch(api, version, profile, FeatureType.Enum))
+            {
+                foreach (var member in allEnums)
+                {
+                    if (!member.Name.Equals(name, StringComparison.Ordinal)) continue;
+                    yield return member;
+                    break;
+                }
+            }
+                
+        }
+
+        private IEnumerable<string> Fetch(Api api, Version version, Profile profile, FeatureType type) 
+        {
+            var set = new HashSet<string>();
+            foreach (var feature in Features)
+            {
+                if (feature.Version > version)
+                    continue;
+                if (!feature.Api.HasFlag(api))
+                    continue;
+
+                foreach (var item in feature)
+                {
+                    if (!item.Type.HasFlag(type))
+                        continue;
+                   
+                    if (!item.Profile.HasFlag(profile))
+                        continue;
+
+                    if (item.Action == FeatureAction.Require)
+                        set.Add(item.Name);
+                    if (item.Action == FeatureAction.Remove)
+                        set.Remove(item.Name);
+                }
+            }
+
+            return set;
+        }
     }
 }

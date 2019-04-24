@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public class Feature : NamedEntryCollection<FeatureItem>
     {

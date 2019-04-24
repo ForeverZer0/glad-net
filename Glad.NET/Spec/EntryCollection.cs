@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public abstract class EntryCollection<T> : Entry, ICollection<T> where T : Entry
     {

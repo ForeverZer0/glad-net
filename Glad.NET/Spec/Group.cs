@@ -1,6 +1,6 @@
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public class Group : NamedEntryCollection<NamedEntry>
     {

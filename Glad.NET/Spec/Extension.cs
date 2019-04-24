@@ -1,7 +1,7 @@
 using System;
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public class Extension : NamedEntryCollection<ExtensionItem>
     {

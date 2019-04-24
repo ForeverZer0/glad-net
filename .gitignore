@@ -1,0 +1,6 @@
+.vs/
+.git/
+.idea/
+Glad.NET/bin/
+Glad.NET/obj/
+*.user

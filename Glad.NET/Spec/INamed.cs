@@ -1,4 +1,4 @@
-namespace Glad
+namespace Glad.Spec
 {
     public interface INamed
     {

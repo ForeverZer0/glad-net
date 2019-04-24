@@ -1,7 +1,7 @@
 using System;
 using System.Diagnostics.CodeAnalysis;
 
-namespace Glad
+namespace Glad.Spec
 {
     [Flags]
     [SuppressMessage("ReSharper", "InconsistentNaming")]

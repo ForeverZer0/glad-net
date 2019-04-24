@@ -7,9 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="OpenGL.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="gl.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Update="glad.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="gladnet.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Wizard\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="OpenGL.cs" />
   </ItemGroup>
 
 </Project>

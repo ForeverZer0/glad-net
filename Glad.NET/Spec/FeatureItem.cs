@@ -1,7 +1,7 @@
 using System;
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public class FeatureItem : NamedEntry
     {

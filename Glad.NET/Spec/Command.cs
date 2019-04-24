@@ -1,6 +1,6 @@
 using System.Xml;
 
-namespace Glad
+namespace Glad.Spec
 {
     public class Command : EntryCollection<Parameter>, INamed
     {

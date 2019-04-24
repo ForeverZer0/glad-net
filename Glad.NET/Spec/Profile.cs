@@ -1,6 +1,6 @@
 using System;
 
-namespace Glad
+namespace Glad.Spec
 {
     [Flags]
     public enum Profile : byte
